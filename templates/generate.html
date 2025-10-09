@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Assignment</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .card {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 600px;
+      }
+      h1 {
+        text-align: center;
+        color: #222;
+        margin-bottom: 25px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      input[type="text"] {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+      input[type="text"]:focus {
+        border-color: #0072ff;
+        outline: none;
+      }
+      input[type="submit"] {
+        background: linear-gradient(135deg, #0072ff, #00c6ff);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      h2 {
+        margin-top: 30px;
+        color: #0072ff;
+      }
+      p {
+        background: #f4f4f4;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #0072ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Generate Assignment</h1>
+      <form method="post" action="/generate">
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" name="topic" placeholder="Enter topic" required />
+        <input type="submit" value="Generate" />
+      </form>
+      {% if assignment %}
+      <h2>Generated Assignment</h2>
+      <p>{{ assignment }}</p>
+      {% endif %}
+      <a href="/">← Back to Home</a>
+    </div>
+  </body>
+</html>
