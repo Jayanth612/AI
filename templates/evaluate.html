@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluate Assignment</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #ff9966, #ff5e62);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .card {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 600px;
+      }
+      h1 {
+        text-align: center;
+        color: #222;
+        margin-bottom: 25px;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        font-size: 16px;
+        resize: vertical;
+        transition: 0.3s;
+      }
+      textarea:focus {
+        border-color: #ff5e62;
+        outline: none;
+      }
+      input[type="submit"] {
+        background: linear-gradient(135deg, #ff5e62, #ff9966);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+      input[type="submit"]:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      h2 {
+        margin-top: 30px;
+        color: #ff5e62;
+      }
+      p {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #ff5e62;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Evaluate Assignment</h1>
+      <form method="post" action="/evaluate">
+        <label for="answer">Student Answer:</label>
+        <textarea id="answer" name="answer" placeholder="Type your answer here" required></textarea>
+        <input type="submit" value="Evaluate" />
+      </form>
+      {% if result %}
+      <h2>Evaluation Result</h2>
+      <p><strong>Feedback:</strong> {{ result.feedback }}</p>
+      <p><strong>Score:</strong> {{ result.score }}/5</p>
+      <p><strong>AI Generated:</strong> {{ result.ai_generated }}</p>
+      {% endif %}
+      <a href="/">← Back to Home</a>
+    </div>
+  </body>
+</html>
